@@ -19,10 +19,10 @@ let Search = () => {
   let ValidateBook = useRef(); // Variable to Validate the Search By Book Field
   let dispatch = useDispatch(); //Dispatch for Redux Store
 
-//Function to Store Input from Search By Book Field and to Change the state for Validation
+  //Function to Store Input from Search By Book Field and to Change the state for Validation
   let setBook = (e) => {
     book = e.target.value;
-    book = book.toLowerCase().trim(); 
+    book = book.toLowerCase().trim();
     if (book !== "") {
       changeValidateStateBook("");
       changeValidateStateCollege("");
@@ -67,44 +67,39 @@ let Search = () => {
   return (
     <div id="searchbox">
       <form action="#">
-        <div className="mb-1">
-          <label htmlFor="college" className="form-label"></label>
-          <input
-            placeholder="Search By College"
+        <div class="field">
+          <input name="college" type="text"
+            required
             onInput={(e) => {
               setCollege(e);
             }}
             autoComplete={"off"}
-            type="text"
-            className="form-control"
             id="college"
-            name="college"
             ref={inputFeildCollege}
-            required
           />
+          <label htmlFor="college">Search By College</label>
           <span className="valspan" data-testid="collegeval">
             {validateStateCollege}
           </span>
         </div>
-        <div className="mb-2">
-          <label htmlFor="book" className="form-label"></label>
-          <input
-            placeholder="Search By Book"
+        <br />
+        <div class="field">
+          <input type="text"
+            required
             onInput={(e) => {
               setBook(e);
             }}
-            type="text"
             autoComplete={"off"}
-            className="form-control"
             id="book"
             name="book"
             ref={inputFeildBook}
-            required
           />
+          <label htmlFor="book">Search By Book</label>
           <span className="valspan" data-testid="bookval">
             {validateStateBook}
           </span>
         </div>
+        <br />
         <br />
         <button
           className="searchBtn"

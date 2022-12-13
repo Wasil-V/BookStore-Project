@@ -136,7 +136,7 @@
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 	display: flex;
 	flex-shrink: 0;
-	height: 260px;
+	height: 280px;
 	justify-content: space-evenly;
 	margin: 40px;
 	max-width: 500px;
@@ -241,3 +241,42 @@ body
 {
 	background-color: #2b6777;
 }
+
+ .field{
+	height: 40px;
+	width: 100%;
+	margin-top: 20px;
+	position: relative;
+  }
+   .field input{
+	height: 100%;
+	width: 100%;
+	border-radius: 4px;
+	outline: none;
+	font-size: 17px;
+	padding-left: 20px;
+	border: 1px solid lightgrey;
+	transition: all 0.3s ease;
+  }
+   .field input:focus,form .field input:valid{
+	border-color: #009688;
+  }
+   .field label{
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	color: #999999;
+	font-weight: 400;
+	font-size: 17px;
+	pointer-events: none;
+	transform: translateY(-50%);
+	transition: all 0.3s ease;
+  }
+  form .field input:focus ~ label,
+  form .field input:valid ~ label{
+	top: 0%;
+	font-size: 16px;
+	color: #009688;
+	background: #fff;
+	transform: translateY(-50%);
+  }

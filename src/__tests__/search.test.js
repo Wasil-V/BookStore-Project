@@ -18,7 +18,7 @@ describe("Test search component", () => {
         render(<Provider store={store}>
             <Search />
         </Provider>);
-        const college = screen.getByPlaceholderText("Search By College")
+        const college = screen.getByLabelText("Search By College")
         expect(college).toHaveAttribute("type", "text");
     })
 
@@ -26,7 +26,7 @@ describe("Test search component", () => {
         render(<Provider store={store}>
             <Search />
         </Provider>);
-        const book = screen.getByPlaceholderText("Search By Book")
+        const book = screen.getByLabelText("Search By Book")
         expect(book).toHaveAttribute("type", "text");
     })
 
@@ -50,8 +50,8 @@ describe("Test search component", () => {
         </Provider>);
 
         const submitBtn = screen.getByTestId("submit");
-        const collegeInputNode = screen.getByPlaceholderText("Search By College");
-        const bookInputNode = screen.getByPlaceholderText("Search By Book");
+        const collegeInputNode = screen.getByLabelText("Search By College");
+        const bookInputNode = screen.getByLabelText("Search By Book");
         const college = screen.getByTestId("collegeval");
         const book = screen.getByTestId("bookval");
 
@@ -73,7 +73,7 @@ describe("Test search component", () => {
         </Provider>);
 
         const submitBtn = screen.getByTestId("submit");
-        const collegeInputNode = screen.getByPlaceholderText("Search By College");
+        const collegeInputNode = screen.getByLabelText("Search By College");
         const college = screen.getByTestId("collegeval");
        
         userEvent.click(submitBtn);
@@ -90,7 +90,7 @@ describe("Test search component", () => {
         </Provider>);
 
         const submitBtn = screen.getByTestId("submit");
-        const bookInputNode = screen.getByPlaceholderText("Search By Book");
+        const bookInputNode = screen.getByLabelText("Search By Book");
         const book = screen.getByTestId("bookval");
        
         userEvent.click(submitBtn);
