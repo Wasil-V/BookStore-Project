@@ -236,6 +236,15 @@
 	{
 		width: 1320px;
 	}
+	.homeLoading{
+		width: 1320px;
+	}
+}
+@media screen and (min-width: 766px)
+{
+	.homeLoading{
+		width: 1320px;
+	}
 }
 body
 {

@@ -15,7 +15,13 @@ let List = () => {
 
   //Function for Loading Animation
   useEffect(() => {
-    setLoading(true);
+    if(bookSearch[0].bookName=='' && collegeSearch[0].collegeName==''){
+      setLoading(false);
+    }
+    else{
+      
+      setLoading(true);
+    }
     setTimeout(() => {
       setLoading(false);
     }, 500);

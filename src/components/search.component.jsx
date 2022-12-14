@@ -15,8 +15,6 @@ let Search = () => {
 
   let inputFeildBook = useRef(); //Variable to clear the Search By Book Field after Submit
   let inputFeildCollege = useRef();  //Variable to clear the Search By College Field after Submit
-  let ValidateCollege = useRef(); //Variable to Validate the Search By College Field
-  let ValidateBook = useRef(); // Variable to Validate the Search By Book Field
   let dispatch = useDispatch(); //Dispatch for Redux Store
 
   //Function to Store Input from Search By Book Field and to Change the state for Validation
@@ -44,9 +42,6 @@ let Search = () => {
 
     e.preventDefault();
 
-    inputFeildBook.current.value = "";
-    inputFeildCollege.current.value = "";
-
     if (
       inputFeildBook.current.value === "" &&
       inputFeildCollege.current.value === ""
@@ -55,21 +50,22 @@ let Search = () => {
       changeValidateStateBook("Please Enter Book");
     }
 
-    if (
-      inputFeildBook.current.value !== "" ||
-      inputFeildCollege.current.value !== ""
-    ) {
-      ValidateCollege.current = "";
-      ValidateBook.current = "";
-    }
   };
+
+  let setValidation = ()=>{
+    changeValidateStateCollege("");
+      changeValidateStateBook("");
+  }
 
   return (
     <div id="searchbox">
       <form action="#">
-        <div class="field">
+        <div className="field">
           <input name="college" type="text"
             required
+            onFocus={()=>{
+              setValidation()
+            }}
             onInput={(e) => {
               setCollege(e);
             }}
@@ -83,9 +79,12 @@ let Search = () => {
           </span>
         </div>
         <br />
-        <div class="field">
+        <div className="field">
           <input type="text"
             required
+            onFocus={()=>{
+              setValidation()
+            }}
             onInput={(e) => {
               setBook(e);
             }}
